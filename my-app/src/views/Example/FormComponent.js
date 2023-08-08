@@ -17,12 +17,20 @@ class FormComponent extends React.Component {
     });
   };
 
+  deleteJob = (job) => {
+    let curentJob = this.state.arr;
+    curentJob = curentJob.filter((item) => item.id !== job.id);
+    this.setState({
+      arr: curentJob,
+    });
+  };
+
   render() {
     console.log("re-render");
     return (
       <>
         <AddComponent addNewJob={this.addNewJob} />
-        <MyComponent jobs={this.state.arr} />
+        <MyComponent jobs={this.state.arr} deleteJob={this.deleteJob} />
       </>
     );
   }

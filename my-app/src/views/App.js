@@ -1,7 +1,10 @@
 import logo from "./logo.svg";
 import "./App.scss";
 // import MyComponent from "./Example/MyComponent";
-import FormComponent from "./Example/FormComponent";
+//import FormComponent from "./Example/FormComponent";
+import ListTodo from "./Todos/ListTodo";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
@@ -18,8 +21,22 @@ function App() {
           Learn React
         </a>
         <MyComponent /> */}
-        <FormComponent />
+        {/* <FormComponent /> */}
+        <ListTodo />
       </header>
+      <ToastContainer
+        position="top-center"
+        autoClose={2000}
+        limit={1}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import "./Demo.scss";
 
 class MyComponent extends React.Component {
   state = {
@@ -11,6 +12,10 @@ class MyComponent extends React.Component {
     });
   };
 
+  handleOnClickDelete = (job) => {
+    this.props.deleteJob(job);
+  };
+
   render() {
     let { jobs } = this.props;
     let { showJobs } = this.state;
@@ -18,7 +23,9 @@ class MyComponent extends React.Component {
       <>
         {showJobs === false ? (
           <div>
-            <button onClick={() => this.handleShowHide()}>Show</button>
+            <button className="btn-show" onClick={() => this.handleShowHide()}>
+              Show
+            </button>
           </div>
         ) : (
           <>
@@ -27,6 +34,10 @@ class MyComponent extends React.Component {
                 return (
                   <div key={item.id}>
                     {item.id}-{item.title}
+                    <span onClick={() => this.handleOnClickDelete(item)}>
+                      {" "}
+                      x
+                    </span>
                   </div>
                 );
               })}
